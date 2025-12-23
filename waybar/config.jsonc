@@ -31,7 +31,7 @@
     "disable-scroll": true,
     "all-outputs": true,
     "on-click": "activate"
-    //"format": "{icon}",
+    //"format": "{icon}"
   },
   "tray": {
     "icon-size": 20,

@@ -13,7 +13,7 @@ window#waybar {
 }
 
 #workspaces button {
-  padding: 5px;
+  padding: 12px;
   color: #555869;
   margin-right: 5px;
 }

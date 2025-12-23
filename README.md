@@ -1,7 +1,7 @@
 # Minimal-Arch-Hyprland-Nvidia-Gamedev
 I highly recommend following the steps one by one. You can start by copying my minimal config, then tweak it however you like.
 
-Note:
+Note if you choose to follow my config consider checkout these note below:
 - "assets" folder put under Pictures folder in your system
 - "bash & bash profile" put under user folder in your system
 - Make sure to put all your themes under:
@@ -9,6 +9,27 @@ Note:
                         /user/share/icons
         User-specific:  /.themes
                         /.icons
+- I'm using keyboard with window button => in hyprland config i did swap alt and win button, and change caplock into escape (so we have 2 escale XD)
+- In terminal i mainly use v to navigate around and nvim to edit stuff => if you want to drag file from yazi to another window press Ctrl + n
+- Must know hotkeys to navigate around:
+        SUPER + T => open terminal
+        SUPER + C => open vscode
+        SUPER + N => open neovim
+        SUPER + E => open yazi file manager
+        SUPER + F => open nautilus file manager
+        SUPER + L => Lockscreen
+        SUPER + Tab => Jumping around window in a workspace
+        SUPER + GRAVE => Jump between 2 workspace
+        SUPER + 1 => Switch to workspace 1
+        Super + SHIFT + 1 => move window to workspace 1
+        SUPER + S => Switch to special workspace
+        SUPER + SHIFT + S => move window to special workspace
+        SUPER + CTRL + Q => Close a window
+        SUPER + V => float a window
+        SUPER + P => Color pick and copy to clipboard
+        SUPER + F11 => Fullscreen
+        PRINT => Screenshot and copy to clipboard
+        CAl => Open Calculator app
 
 ## Install Arch Linux
 Download Arch Linux https://archlinux.org/download/
