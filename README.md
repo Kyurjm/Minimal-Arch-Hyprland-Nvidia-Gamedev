@@ -2,8 +2,13 @@
 I highly recommend following the steps one by one. You can start by copying my minimal config, then tweak it however you like.
 
 Note:
-- assets folder put under Pictures folder in your system
-- bash & bash profile put under user folder in your system
+- "assets" folder put under Pictures folder in your system
+- "bash & bash profile" put under user folder in your system
+- Make sure to put all your themes under:
+        System-wide:    /user/share/themes
+                        /user/share/icons
+        User-specific:  /.themes
+                        /.icons
 
 ## Install Arch Linux
 Download Arch Linux https://archlinux.org/download/
