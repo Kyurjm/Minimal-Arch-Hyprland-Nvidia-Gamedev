@@ -5,13 +5,15 @@ Note if you choose to follow my config consider checkout these note below:
 - "assets" folder put under Pictures folder in your system
 - "bash & bash profile" put under user folder in your system
 - Make sure to put all your themes under:
+
         System-wide:    /user/share/themes
                         /user/share/icons
         User-specific:  /.themes
                         /.icons
-- I'm using keyboard with window button => in hyprland config i did swap alt and win button, and change caplock into escape (so we have 2 escale XD)
-- In terminal i mainly use v to navigate around and nvim to edit stuff => if you want to drag file from yazi to another window press Ctrl + n
+- I'm using keyboard with window keyboard => in hyprland config i did swap alt and win button, and change caplock into escape (so we have 2 escale XD)
+- In terminal I mainly use yazi to navigate around and nvim to edit stuff => if you want to drag file from yazi to another window press Ctrl + N
 - Must know hotkeys to navigate around:
+
         SUPER + T => open terminal
         SUPER + C => open vscode
         SUPER + N => open neovim
