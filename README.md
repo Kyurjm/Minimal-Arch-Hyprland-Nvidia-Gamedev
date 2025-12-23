@@ -1,6 +1,10 @@
 # Minimal-Arch-Hyprland-Nvidia-Gamedev
 I highly recommend following the steps one by one. You can start by copying my minimal config, then tweak it however you like.
 
+Note:
+- assets folder put under Pictures folder in your system
+- bash & bash profile put under user folder in your system
+
 ## Install Arch Linux
 Download Arch Linux https://archlinux.org/download/
 Install Arch Linux
@@ -48,6 +52,10 @@ sudo pacman -S neovim
 ### File Manager
 ```
 sudo pacman -S nautilus
+```
+### Compression Tools
+```
+sudo pacman -S file-roller 7zip unzip unrar gzip bzip2 xz tar
 ```
 ### Terminal File Manager (https://yazi-rs.github.io/docs/installation)
 ```
@@ -286,24 +294,21 @@ paru -S bluetooth-autoconnect
 ```
 sudo systemctl enable --now bluetooth.service
 ```
-Bluetooth GUI
-```
-sudo pacman -S blueberry
-```
 Bluetooth TUI
 ```
 sudo pacman -S bluetui
 ```
 ### Volume
 ```
-sudo pacman -S pavucontrol pamixer
+sudo pacman -S pamixer
 ```
-### WiFi GUI
+Volume Control TUI
+```
+sudo pacman -S pulsemixer
+```
+### WiFi
 ```
 sudo pacman -S iwd
-```
-```
-paru -S iwgtk
 ```
 ```
 sudo systemctl start iwd

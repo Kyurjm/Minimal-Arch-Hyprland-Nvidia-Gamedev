@@ -25,7 +25,7 @@
     "pulseaudio#microphone"
   ],
   "hyprland/window": {
-    "format": "󰣇 {initialTitle} - {class}"
+    "format": "󰣇 {class}"
   },
   "hyprland/workspaces": {
     "disable-scroll": true,
@@ -119,7 +119,7 @@
     "format-alt": " {status}",
     "tooltip": true,
     "tooltip-format": "{device_enumerate}",
-    "on-click": "blueberry",
+    "on-click-right": "ghostty -e bluetui",
     "format-connected": "",
     "format-off": ""
   },
@@ -128,6 +128,7 @@
     "format-source": " {volume}%",
     "format-source-muted": "  Muted",
     "on-click": "pamixer --default-source -t",
+    "on-click-right": "ghostty -e pulsemixer",
     "on-scroll-up": "pamixer --default-source -i 5",
     "on-scroll-down": "pamixer --default-source -d 5",
     "scroll-step": 5
@@ -172,6 +173,7 @@
     "format-disconnected": "󰖪 ",
     "tooltip-format-disconnected": "Disconnected",
     "format-alt": "<span foreground='#99ffdd'> {bandwidthDownBytes}</span> <span foreground='#ffcc66'> {bandwidthUpBytes}</span>",
-    "interval": 2
+    "interval": 2,
+    "on-click-right": "ghostty -e impala"
   }
 }

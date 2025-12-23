@@ -29,3 +29,6 @@ eval "$(zoxide init bash)"
 alias cd='z'
 alias ls='eza -a --icons --git'
 alias music='ncmpcpp'
+alias volume='pulsemixer'
+alias bluetooth='bluetui'
+alias wifi='impala'

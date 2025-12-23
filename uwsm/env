@@ -1,7 +1,7 @@
 # ~/.config/uwsm/env
 # Cursor (non-Hyprland specific)
-export XCURSOR_THEME=Vimix Kanagawa Cursors - Wave
-export XCURSOR_SIZE=32
+export XCURSOR_THEME=vimix-kanagawa-cursors-wave
+export XCURSOR_SIZE=42
 
 # QT
 export QT_QPA_PLATFORM=wayland;xcb
