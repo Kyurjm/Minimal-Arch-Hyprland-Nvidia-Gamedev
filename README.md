@@ -499,6 +499,10 @@ If you on MacOS and Window and want a free sync => between MacOS, iOS and Window
 ```
 sudo pacman -S syncthing
 ```
+### Dotnet SDK
+```
+sudo pacman -S dotnet-sdk
+```
 
 ---
 
