@@ -350,6 +350,10 @@ sudo pacman -S impala
 ```
 sudo pacman -S udiskie
 ```
+### Media Transfer Protocol
+```
+sudo pacman -S gvfs-mtp gvfs-gphoto2 libmtp
+```
 ### Add Keyrings Manager
 ```
 sudo pacman -S gnome-keyring libsecret seahorse
