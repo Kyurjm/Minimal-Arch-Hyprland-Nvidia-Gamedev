@@ -1,6 +1,14 @@
 # Minimal-Arch-Hyprland-Nvidia-Gamedev
 I highly recommend following the steps one by one. You can start by copying my minimal config, then tweak it however you like.
 
+SPECIFICATION:
+- Gigabyte Z690 Aorus Elite AX DDR4 V2 Motherboard
+- Intel Core i7 12700F Processor / 2.1GHz Turbo 4.9GHz / 12 Cores 20 Threads / 25MB / LGA 1700
+- Gigabyte Aorus GeForce RTX 3070 Master 8G (LHR) Graphics Card (GV-N3070AORUS-M-8GD)
+- Cooler Master MWE 750 Bronze V2 FR Power Supply (750W)
+- Cooler Master MASTERLIQUID ML240L V2 ARGB White Edition Cooler
+- PNY XLR8 Silver 4x8GB 3600 RGB RAM
+
 Note if you choose to follow my config consider checkout these note below:
 - "assets" folder put under Pictures folder in your system
 - "bash & bash profile" put under user folder in your system
@@ -111,7 +119,7 @@ sudo pacman -S pipewire wireplumber
 ```
 ### Install Fonts
 ```
-sudo pacman -S noto-fonts-cjk ttf-cascadia-code-nerd ttf-cascadia-mono-nerd ttf-fira-code ttf-fira-mono ttf-fira-sans ttf-firacode-nerd ttf-iosevka-nerd ttf-iosevkaterm-nerd ttf-jetbrains-mono-nerd ttf-jetbrains-mono ttf-nerd-fonts-symbols ttf-nerd-fonts-symbols ttf-nerd-fonts-symbols-mono
+sudo pacman -S ttf-dejavu-nerd noto-fonts-cjk ttf-cascadia-code-nerd ttf-cascadia-mono-nerd ttf-fira-code ttf-fira-mono ttf-fira-sans ttf-firacode-nerd ttf-iosevka-nerd ttf-iosevkaterm-nerd ttf-jetbrains-mono-nerd ttf-jetbrains-mono ttf-nerd-fonts-symbols ttf-nerd-fonts-symbols ttf-nerd-fonts-symbols-mono
 ```
 ### Version control system
 ```

@@ -8,15 +8,19 @@
   "height": 0,
   "modules-left": [
     "hyprland/workspaces",
-    "hyprland/window"
+    "hyprland/window",
+    "tray"
   ],
   "modules-center": [
     "clock"
   ],
   "modules-right": [
-    "tray",
     "memory",
     "cpu",
+    "temperature#cpu",
+    "temperature#nvme",
+    "custom/gpu-temp",
+    "disk",
     "network",
     "battery",
     "backlight",
@@ -34,8 +38,8 @@
     "on-click": "activate"
   },
   "tray": {
-    "icon-size": 20,
-    "spacing": 10
+    "icon-size": 15,
+    "spacing": 8
   },
   "clock": {
     "format": "{:%I:%M:%S %p  %a-%b-%d-%Y}",
@@ -140,10 +144,10 @@
       "m": 30 // medium
     },
     "interval": 10,
-    "format": "󰾆 {used}GB",
-    "format-m": "󰾅 {used}GB",
-    "format-h": "󰓅 {used}GB",
-    "format-c": " {used}GB",
+    "format": " 󰾆 {used}GB",
+    "format-m": " 󰾅 {used}GB",
+    "format-h": " 󰓅 {used}GB",
+    "format-c": "  {used}GB",
     "format-alt": "󰾆 {percentage}%",
     "max-length": 10,
     "tooltip": true,
@@ -163,6 +167,35 @@
       "▇",
       "█"
     ]
+  },
+  "temperature#cpu": {
+    "thermal-zone": 2,
+    "critical-threshold": 80,
+    "format-critical": "󰍛 {temperatureC}°C",
+    "format": "󰍛 {temperatureC}°C",
+    "tooltip": true,
+    "tooltip-format": "CPU: {temperatureC}°C\nHigh: 80°C | Critical: 100°C"
+  },
+  "temperature#nvme": {
+    "hwmon-path": "/sys/class/hwmon/hwmon0/temp1_input",
+    "critical-threshold": 70,
+    "format-critical": "|{temperatureC}°C",
+    "format": " {temperatureC}°C",
+    "tooltip": true,
+    "tooltip-format": "NVMe SSD: {temperatureC}°C\nHigh: 81.8°C | Critical: 84.8°C"
+  },
+  "custom/gpu-temp": {
+    "exec": "nvidia-smi --query-gpu=name,temperature.gpu,utilization.gpu,memory.used,memory.total,power.draw --format=csv,noheader,nounits 2>/dev/null | awk -F', ' '{name=$1; gsub(/^[ \\t]+|[ \\t]+$/, \"\", name); temp=$2; gsub(/^[ \\t]+|[ \\t]+$/, \"\", temp); util=$3; gsub(/^[ \\t]+|[ \\t]+$/, \"\", util); mem_used=$4; gsub(/^[ \\t]+|[ \\t]+$/, \"\", mem_used); mem_total=$5; gsub(/^[ \\t]+|[ \\t]+$/, \"\", mem_total); power=$6; gsub(/^[ \\t]+|[ \\t]+$/, \"\", power); printf \"{\\\"text\\\":\\\"%s°C\\\",\\\"tooltip\\\":\\\"GPU: %s\\\\nTemp: %s°C\\\\nUsage: %s%%\\\\nVRAM: %s/%s MiB\\\\nPower: %sW\\\"}\", temp, name, temp, util, mem_used, mem_total, power}'",
+    "format": "󱑵 {}",
+    "interval": 5,
+    "return-type": "json"
+  },
+  "disk": {
+    "interval": 30,
+    "format": "󰑹 {percentage_used}%",
+    "path": "/",
+    "tooltip": true,
+    "tooltip-format": "Root Partition (/)\n\nUsed: {used} ({percentage_used}%)\nFree: {free} ({percentage_free}%)\nTotal: {total}"
   },
   "network": {
     "tooltip": true,

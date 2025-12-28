@@ -15,10 +15,12 @@ vim.o.showmode = false
 vim.schedule(function()
   vim.o.clipboard = 'unnamedplus'
 end)
+-- Skip dialog on save
+vim.o.confirm = true
 -- Enable break indent
 vim.o.breakindent = true
 -- Line wrapping
-vim.opt.wrap = true
+vim.opt.wrap = false
 -- Indentation settings
 vim.opt.shiftwidth = 2
 vim.opt.tabstop = 2
@@ -333,8 +335,13 @@ require('lazy').setup({
       local capabilities = require('blink.cmp').get_lsp_capabilities()
       -- Enable the following language servers
       local servers = {
-        -- rust_analyzer = {},
-        -- ts_ls = {},
+        bashls = {},
+        cssls = {},
+        html = {},
+        jsonls = {},
+        taplo = {},
+        omnisharp = {},
+        rust_analyzer = {},
         lua_ls = {
           settings = {
             Lua = {
@@ -347,12 +354,20 @@ require('lazy').setup({
       }
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
-        'stylua', -- Used to format Lua code
+        -- Formatters / Linters
+        'stylua',
+        'prettier',
+        'shfmt',
+        'selene',
+        'csharpier',
+        'codelldb',
+        'netcoredbg',
       })
+      -- Tell Mason to install everything in the list
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
-
+      -- Setup Only the LSPs
       require('mason-lspconfig').setup {
-        ensure_installed = {}, -- explicitly set to an empty table (Kickstart populates installs via mason-tool-installer)
+        ensure_installed = {},
         automatic_installation = false,
         handlers = {
           function(server_name)
@@ -394,7 +409,14 @@ require('lazy').setup({
       end,
       formatters_by_ft = {
         lua = { 'stylua' },
-        json = { 'jq' },
+        json = { 'prettier' },
+        html = { 'prettier' },
+        css = { 'prettier' },
+        toml = { 'taplo' },
+        sh = { 'shfmt' },
+        bash = { 'shfmt' },
+        cs = { 'csharpier' },
+        rust = { 'rustfmt' },
       },
     },
   },
@@ -414,8 +436,12 @@ require('lazy').setup({
           end
           return 'make install_jsregexp'
         end)(),
-        dependencies = {},
-        opts = {},
+        dependencies = {
+          'rafamadriz/friendly-snippets',
+        },
+        config = function()
+          require('luasnip.loaders.from_vscode').lazy_load()
+        end,
       },
       'folke/lazydev.nvim',
     },
@@ -430,7 +456,7 @@ require('lazy').setup({
       },
       completion = {
         -- By default, you may press `<c-space>` to show the documentation.
-        documentation = { auto_show = false, auto_show_delay_ms = 500 },
+        documentation = { auto_show = true, auto_show_delay_ms = 500 },
       },
       sources = {
         default = { 'lsp', 'path', 'snippets', 'lazydev' },
@@ -459,9 +485,6 @@ require('lazy').setup({
     end,
   },
 
-  -- Highlight todo, notes, etc in comments
-  { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
-
   { -- Collection of various small independent plugins/modules
     'echasnovski/mini.nvim',
     config = function()
@@ -483,10 +506,26 @@ require('lazy').setup({
   { -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
-    main = 'nvim-treesitter.config', -- Sets main module to use for opts
-    -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
+    main = 'nvim-treesitter.config',
     opts = {
-      ensure_installed = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc' },
+      ensure_installed = {
+        'bash',
+        'c',
+        'diff',
+        'html',
+        'lua',
+        'luadoc',
+        'markdown',
+        'markdown_inline',
+        'query',
+        'vim',
+        'vimdoc',
+        'rust',
+        'c_sharp',
+        'json',
+        'css',
+        'toml',
+      },
       -- Autoinstall languages that are not installed
       auto_install = true,
       highlight = {
@@ -528,13 +567,13 @@ require('lazy').setup({
     },
     lazy = false,
     keys = {
-      { '\\', ':Neotree reveal<CR>', desc = 'NeoTree reveal', silent = true },
+      { '<leader>e', ':Neotree reveal<CR>', desc = 'NeoTree reveal', silent = true },
     },
     opts = {
       filesystem = {
         window = {
           mappings = {
-            ['\\'] = 'close_window',
+            ['<leader>ee'] = 'close_window',
           },
         },
       },
@@ -545,6 +584,24 @@ require('lazy').setup({
     'akinsho/bufferline.nvim',
     version = '*',
     dependencies = 'nvim-tree/nvim-web-devicons',
+    opts = {},
+  },
+
+  {
+    'github/copilot.vim',
+    lazy = false,
+    config = function()
+      vim.g.copilot_no_tab_map = true
+      vim.g.copilot_assume_mapped = true
+    end,
+  },
+
+  {
+    'apyra/nvim-unity-sync',
+    lazy = false,
+    config = function()
+      require('unity.plugin').setup()
+    end,
   },
 }, {
   ui = {

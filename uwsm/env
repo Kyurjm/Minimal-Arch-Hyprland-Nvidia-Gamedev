@@ -1,30 +1,30 @@
 # ~/.config/uwsm/env
 # Cursor (non-Hyprland specific)
 export XCURSOR_THEME=vimix-kanagawa-cursors-wave
-export XCURSOR_SIZE=42
+export XCURSOR_SIZE=35
 
 # QT
-export QT_QPA_PLATFORM=wayland;xcb
-export QT_QPA_PLATFORMTHEME=hyprqt6engine
-export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
-export QT_AUTO_SCREEN_SCALE_FACTOR=1
-export QT_STYLE_OVERRIDE=kvantum
+export QT_QPA_PLATFORM,wayland;xcb
+export QT_QPA_PLATFORMTHEME,hyprqt6engine
+export QT_WAYLAND_DISABLE_WINDOWDECORATION,1
+export QT_AUTO_SCREEN_SCALE_FACTOR,1
+# export QT_STYLE_OVERRIDE=kvantum
 
 # Toolkit Backend Variables
-export GDK_BACKEND=wayland,x11,*
-export SDL_VIDEODRIVER=wayland
-export CLUTTER_BACKEND=wayland
+export GDK_BACKEND,wayland,x11,*
+export SDL_VIDEODRIVER,wayland
+export CLUTTER_BACKEND,wayland
 
 # XDG Specifications
-export XDG_CURRENT_DESKTOP=Hyprland
-export XDG_SESSION_TYPE=wayland
-export XDG_SESSION_DESKTOP=Hyprland
+export XDG_CURRENT_DESKTOP,Hyprland
+export XDG_SESSION_TYPE,wayland
+export XDG_SESSION_DESKTOP,Hyprland
 
 # Nvidia
-export LIBVA_DRIVER_NAME=nvidia
-export __GLX_VENDOR_LIBRARY_NAME=nvidia
+export LIBVA_DRIVER_NAME,nvidia
+export __GLX_VENDOR_LIBRARY_NAME,nvidia
 export NVD_BACKEND=direct
-export GBM_BACKEND=nvidia-drm
+export GBM_BACKEND,nvidia-drm
 export __NV_PRIME_RENDER_OFFLOAD=1
 export __VK_LAYER_NV_optimus=NVIDIA_only
 

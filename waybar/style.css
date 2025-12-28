@@ -1,29 +1,29 @@
 * {
   border: none;
   border-radius: 0;
-  font-family: JetBrainsMono Nerd Font, monospace;
+  font-family: "JetBrainsMono Nerd Font", monospace;
   font-weight: bold;
-  font-size: 20px;
+  font-size: 15px;
   min-height: 0;
 }
 
 window#waybar {
   background: rgba(31, 31, 40, 0);
-  color: #DEDEDE;
+  color: #dedede;
 }
 
 #workspaces button {
-  padding: 12px;
+  padding: 8px;
   color: #555869;
   margin-right: 5px;
 }
 
 #workspaces button.active {
-  color: #DEDEDE;
+  color: #dedede;
 }
 
 #workspaces button.focused {
-  color: #DEDEDE;
+  color: #dedede;
   background: #eba0ac;
   border-radius: 10px;
 }
@@ -47,14 +47,18 @@ window#waybar {
 #pulseaudio,
 #network,
 #cpu,
+#temperature,
+#temperature.cpu,
+#custom-gpu-temp,
+#disk,
 #memory,
 #workspaces,
 #tray,
 #backlight {
   background: #1e1e2e;
   padding: 0px 10px;
-  margin: 3px 0px;
-  margin-top: 5px;
+  margin: 2px 0px;
+  margin-top: 3px;
   /* border: 1px solid #181825; */
 }
 
@@ -63,8 +67,8 @@ window#waybar {
 }
 
 #tray {
-  border-radius: 15px;
-  margin-right: 15px;
+  border-radius: 10px;
+  margin-right: 10px;
 }
 
 #workspaces {
@@ -75,13 +79,34 @@ window#waybar {
   padding-left: 5px;
 }
 
-#cpu {
-  border-radius: 0px 10px 10px 0px;
-  margin-right: 10px;
-}
-
 #memory {
   border-radius: 10px 0px 0px 10px;
+  padding: 5px 5px 5px 5px;
+}
+
+#cpu {
+  border-left: 0px;
+  border-right: 0px;
+}
+
+#temperature.cpu {
+  border-left: 0px;
+  border-right: 0px;
+}
+
+#temperature.nvme {
+  border-left: 0px;
+  border-right: 0px;
+}
+
+#custom-gpu-temp {
+  border-left: 0px;
+  border-right: 0px;
+}
+
+#disk {
+  border-radius: 0px 10px 10px 0px;
+  margin-right: 10px;
 }
 
 #window {
@@ -91,32 +116,31 @@ window#waybar {
 }
 
 #clock {
-  color: #DEDEDE;
+  color: #dedede;
   border-radius: 10px 10px 10px 10px;
   margin-left: 5px;
   border-right: 0px;
 }
 
 #network {
-  color: #DEDEDE;
+  color: #dedede;
   border-radius: 10px 0px 0px 10px;
-
 }
 
 #bluetooth {
-  color: #DEDEDE;
+  color: #dedede;
   border-left: 0px;
   border-right: 0px;
 }
 
 #pulseaudio {
-  color: #DEDEDE;
+  color: #dedede;
   border-left: 0px;
   border-right: 0px;
 }
 
 #pulseaudio.microphone {
-  color: #DEDEDE;
+  color: #dedede;
   border-radius: 0px 10px 10px 0px;
   border-left: 0px;
   border-right: 0px;
@@ -124,7 +148,7 @@ window#waybar {
 }
 
 #battery {
-  color: #DEDEDE;
+  color: #dedede;
   border-radius: 0px 10px 10px 0px;
   margin-right: 10px;
 }

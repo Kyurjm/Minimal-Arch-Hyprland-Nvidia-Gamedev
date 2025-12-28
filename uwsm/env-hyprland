@@ -1,4 +1,4 @@
 # ~/.config/uwsm/env-hyprland
 # Hyprland Cursor
 export HYPRCURSOR_THEME=vimix-kanagawa-hyprcursors-wave
-export HYPRCURSOR_SIZE=42
+export HYPRCURSOR_SIZE=35
