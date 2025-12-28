@@ -1,6 +1,12 @@
 # Minimal-Arch-Hyprland-Nvidia-Gamedev
 I highly recommend following the steps one by one. You can start by copying my minimal config, then tweak it however you like.
 
+SCREENSHOTS:
+
+![Demo0](https://github.com/Kyurjm/Minimal-Arch-Hyprland-Nvidia-Gamedev/blob/87513e05e95dd1a0abd9d12fe9af5abb8b1d9bd2/assets/Demo/Screenshot1.jpg)
+
+![Demo1](https://github.com/Kyurjm/Minimal-Arch-Hyprland-Nvidia-Gamedev/blob/87513e05e95dd1a0abd9d12fe9af5abb8b1d9bd2/assets/Demo/Screenshot.jpg)
+
 SPECIFICATION:
 - Gigabyte Z690 Aorus Elite AX DDR4 V2 Motherboard
 - Intel Core i7 12700F Processor / 2.1GHz Turbo 4.9GHz / 12 Cores 20 Threads / 25MB / LGA 1700
