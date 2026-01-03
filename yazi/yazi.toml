@@ -1,46 +1,39 @@
 "$schema" = "https://yazi-rs.github.io/schemas/yazi.json"
 
 [mgr]
-ratio          = [ 3, 6, 9 ]
-sort_by        = "alphabetical"
+ratio = [3, 6, 9]
+sort_by = "alphabetical"
 sort_sensitive = false
-sort_reverse 	 = false
+sort_reverse = false
 sort_dir_first = true
-sort_translit  = false
-linemode       = "none"
-show_hidden    = false
-show_symlink   = true
-scrolloff      = 5
-mouse_events   = [ "click", "scroll" ]
-title_format   = "Yazi: {cwd}"
+sort_translit = false
+linemode = "none"
+show_hidden = false
+show_symlink = true
+scrolloff = 5
+mouse_events = ["click", "scroll"]
+title_format = "Yazi: {cwd}"
 
 [preview]
-wrap            = "no"
-tab_size        = 2
-max_width       = 600
-max_height      = 900
-cache_dir       = ""
-image_delay     = 30
-image_filter    = "triangle"
-image_quality   = 75
-ueberzug_scale  = 1
-ueberzug_offset = [ 0, 0, 0, 0 ]
+wrap = "no"
+tab_size = 2
+max_width = 600
+max_height = 900
+cache_dir = ""
+image_delay = 30
+image_filter = "triangle"
+image_quality = 75
+ueberzug_scale = 1
+ueberzug_offset = [0, 0, 0, 0]
 
 # Play Music
 [opener]
-play = [
-  { run = 'mpv --no-video "$@"', block = true, orphan = false },
-]
-video = [
-  { run = 'mpv "$@"', block = true, orphan = false },
-]
+play = [{ run = 'mpv --no-video "$@"', block = true, orphan = false }]
+video = [{ run = 'mpv "$@"', block = true, orphan = false }]
 image = [
   { run = 'imv "$@"', block = false, orphan = true },
-  # Or use: { run = 'feh "$@"', block = false, orphan = true },
 ]
-edit = [
-  { run = 'nvim "$@"', block = true, orphan = false },
-]
+edit = [{ run = 'nvim "$@"', block = true, orphan = false }]
 [open]
 prepend_rules = [
   # Text files
@@ -60,7 +53,7 @@ prepend_rules = [
   { name = "*.h", use = "edit" },
   { name = "*.js", use = "edit" },
   { name = "*.ts", use = "edit" },
-  
+
   # Audio files
   { mime = "audio/*", use = "play" },
   { name = "*.mp3", use = "play" },
@@ -73,7 +66,7 @@ prepend_rules = [
   { name = "*.mp4", use = "video" },
   { name = "*.mkv", use = "video" },
   { name = "*.webm", use = "video" },
-    # Images
+  # Images
   { mime = "image/*", use = "image" },
   { name = "*.jpg", use = "image" },
   { name = "*.jpeg", use = "image" },
