@@ -1,0 +1,27 @@
+model: ollama/qwen3-coder-30b-16k
+
+# Editing behavior
+auto-accept-architect: false
+auto-commits: false
+show-diffs: true
+map-tokens: "2048"
+
+# Output & UX
+pretty: true
+stream: true
+code-theme: lightbulb
+
+# Git safety
+git: true
+gitignore: true
+
+# Colors (Kanagawa-friendly)
+user-input-color: "#98BB6C"
+tool-output-color: "#7FB4CA"
+assistant-output-color: "#dcd7ba"
+tool-error-color: "#c34043"
+tool-warning-color: "#F69A63"
+completion-menu-color: "#dcd7ba"
+completion-menu-bg-color: "#1f1f28"
+completion-menu-current-color: "#dcd7ba"
+completion-menu-current-bg-color: "#39363d"

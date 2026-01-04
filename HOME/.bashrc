@@ -35,3 +35,13 @@ alias wifi='impala'
 
 # Rust
 . "$HOME/.cargo/env"
+
+# Created by `pipx` on 2026-01-04 12:50:46
+export PATH="$PATH:/home/kyurjm/.local/bin"
+
+# UV Autocomplete
+eval "$(uv generate-shell-completion bash)"
+eval "$(uvx --generate-shell-completion bash)"
+
+# Ollama
+export OLLAMA_API_BASE=http://127.0.0.1:11434

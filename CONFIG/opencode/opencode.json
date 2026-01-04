@@ -1,0 +1,33 @@
+// Ollama
+{
+  "$schema": "https://opencode.ai/config.json",
+  "theme": "kanagawa",
+  "autoupdate": true,
+  "tools": {
+    "write": true,
+    "read": true,
+    "grep": true,
+    "glob": true,
+    "list": true,
+    "skill": true,
+    "todowrite": true,
+    "todoread": true,
+    "bash": true,
+    "webfetch": true,
+    "edit": true
+  },
+  "provider": {
+    "ollama": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "Ollama (local)",
+      "options": {
+        "baseURL": "http://localhost:11434/v1"
+      },
+      "models": {
+        "qwen3-coder-30b-16k:latest": {
+          "name": "qwen3-coder-30b-16k:latest",
+        }
+      }
+    }
+  }
+}
