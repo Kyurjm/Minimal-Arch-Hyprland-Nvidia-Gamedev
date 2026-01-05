@@ -7,24 +7,7 @@ SCREENSHOTS:
 
 ![Demo1](https://github.com/Kyurjm/Minimal-Arch-Hyprland-Nvidia-Gamedev/blob/87513e05e95dd1a0abd9d12fe9af5abb8b1d9bd2/assets/Demo/Screenshot.jpg)
 
-SPECIFICATION:
-- Gigabyte Z690 Aorus Elite AX DDR4 V2 Motherboard
-- Intel Core i7 12700F Processor / 2.1GHz Turbo 4.9GHz / 12 Cores 20 Threads / 25MB / LGA 1700
-- Gigabyte Aorus GeForce RTX 3070 Master 8G (LHR) Graphics Card (GV-N3070AORUS-M-8GD)
-- Cooler Master MWE 750 Bronze V2 FR Power Supply (750W)
-- Cooler Master MASTERLIQUID ML240L V2 ARGB White Edition Cooler
-- PNY XLR8 Silver 4x8GB 3600 RGB RAM
-
-Note if you choose to follow my config consider checkout these note below:
-- "assets" folder put under Pictures folder in your system
-- "bash & bash profile" put under user folder in your system
-- Make sure to put all your themes under:
-
-        System-wide:    /user/share/themes
-                        /user/share/icons
-        User-specific:  /.themes
-                        /.icons
-- I'm using keyboard with window keyboard => in hyprland config i did swap alt and win button, and change caplock into escape (so we have 2 escale XD)
+- I'm using keyboard with window keyboard => in hyprland config i did swap alt and win button, and change caplock into escape
 - In terminal I mainly use yazi to navigate around and nvim to edit stuff => if you want to drag file from yazi to another window press Ctrl + N
 - Must know hotkeys to navigate around:
 
@@ -107,9 +90,7 @@ sudo pacman -S yazi ffmpeg 7zip jq poppler fd ripgrep fzf zoxide resvg imagemagi
 ```
 paru -S ripdrag
 ```
-### Wayland session manager
 ```
-sudo pacman -S uwsm libnewt
 ```
 ### For extracting and viewing files in .zip archives
 ```
@@ -134,6 +115,10 @@ sudo pacman -S git
 ### TUI for git commands
 ```
 sudo pacman -S lazygit
+```
+### Display Manager
+```
+Sudo pacman -S sddm
 ```
 
 ---
