@@ -58,6 +58,11 @@ cd paru
 makepkg -si
 rm -r paru
 ```
+### Shell Bash and Fish
+```
+sudo pacman -S fish bash
+```
+
 ### Choose your terminal
 ```
 sudo pacman -S ghostty
