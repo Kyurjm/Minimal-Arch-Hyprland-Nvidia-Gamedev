@@ -9,7 +9,7 @@ keybind = ctrl+shift+K=text:\x03
 
 # Fonts
 font-family = DejavuSansM Nerd Font
-font-size = 10
+font-size = 12
 
 # Window Padding
 window-padding-x = 5
