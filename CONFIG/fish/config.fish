@@ -42,3 +42,6 @@ fish_add_path /home/kyurjm/.local/bin
 
 # Zoxide
 zoxide init fish | source
+
+# Nvim Nightly Build
+fish_add_path $HOME/.local/share/bob/nvim-bin
