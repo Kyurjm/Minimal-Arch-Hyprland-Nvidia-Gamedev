@@ -475,6 +475,16 @@ paru -S gdk-pixbuf2-noglycin
 sudo pacman -Rs glycin
 ```
 **Note:** if Unity have problem with android modules not found (even you already installed throughunityhub), find the modules install location then manual extract .Payload~ file
+**Note:** if Unity fail to build android apk
+
+```
+cd ~/Downloads
+wget https://dl.google.com/android/repository/android-ndk-r27c-linux.zip
+unzip android-ndk-r27c-linux.zip
+mkdir -p ~/Unity/Hub/Editor/6000.3.2f1/Editor/Data/PlaybackEngines/AndroidPlayer/NDK
+mv android-ndk-r27c ~/Unity/Hub/Editor/6000.3.2f1/Editor/Data/PlaybackEngines/AndroidPlayer/NDK/
+ls -la ~/Unity/Hub/Editor/6000.3.2f1/Editor/Data/PlaybackEngines/AndroidPlayer/NDK/android-ndk-r27c/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++
+```
 
 ### Install Figma
 - Can use web version as app from chrome => Chrome Setting => Cast,save and share => Install page as app
@@ -511,7 +521,14 @@ sudo pacman -S syncthing
 ```
 sudo pacman -S dotnet-sdk
 ```
-
+### Mono
+```
+sudo pacman -S mono mono-msbuild
+```
+### Omnisharp-roslyn
+```
+paru -S omnisharp-roslyn
+```
 ---
 
 ## Optional Stuff

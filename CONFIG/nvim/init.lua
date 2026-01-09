@@ -47,30 +47,30 @@ vim.diagnostic.config({virtual_text = true,signs = true,underline = true,update_
 --###################
 
 vim.pack.add({
-  { src = "https://github.com/rebelot/kanagawa.nvim" },
-  { src = "https://github.com/nvimdev/indentmini.nvim" },
-  { src = "https://github.com/sphamba/smear-cursor.nvim" },
-  { src = "https://github.com/neovim/nvim-lspconfig" },
-  { src = "https://github.com/mason-org/mason.nvim" },
-  { src = "https://github.com/mason-org/mason-lspconfig.nvim" },
-  { src = "https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim" },
-  { src = "https://github.com/Saghen/blink.cmp", version = vim.version.range('*') },
-  { src = "https://github.com/L3MON4D3/LuaSnip" },
-  { src = "https://github.com/rafamadriz/friendly-snippets" },
-  { src = "https://github.com/windwp/nvim-autopairs" },
-  { src = "https://github.com/nvim-treesitter/nvim-treesitter" },
-  { src = "https://github.com/folke/which-key.nvim" },
-  { src = "https://github.com/nvim-telescope/telescope.nvim" },
-  { src = "https://github.com/nvim-telescope/telescope-fzf-native.nvim" },
-  { src = "https://github.com/nvim-lua/plenary.nvim" },
-  { src = "https://github.com/nvim-tree/nvim-web-devicons" },
-  { src = "https://github.com/nvim-lualine/lualine.nvim" },
-  { src = "https://github.com/kdheepak/lazygit.nvim" },
-  { src = "https://github.com/mikavilpas/yazi.nvim" },
-  { src = "https://github.com/mfussenegger/nvim-dap" },
-  { src = "https://github.com/nvim-neotest/nvim-nio" },
-  { src = "https://github.com/rcarriga/nvim-dap-ui" },
-  { src = "https://github.com/karb94/neoscroll.nvim" },
+  { src = "https://github.com/rebelot/kanagawa.nvim" }, -- Kanagawa Theme
+  { src = "https://github.com/nvimdev/indentmini.nvim" }, -- Indent Guide
+  { src = "https://github.com/sphamba/smear-cursor.nvim" }, -- Cursor Style
+  { src = "https://github.com/neovim/nvim-lspconfig" }, -- LSP
+  { src = "https://github.com/mason-org/mason.nvim" }, -- LSP
+  { src = "https://github.com/mason-org/mason-lspconfig.nvim" }, -- LSP
+  { src = "https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim" }, -- LSP
+  { src = "https://github.com/Saghen/blink.cmp", version = vim.version.range('*') }, -- Auto Completion
+  { src = "https://github.com/L3MON4D3/LuaSnip", version = vim.version.range('*') }, -- Code Snippets
+  { src = "https://github.com/rafamadriz/friendly-snippets" }, -- Code Snippets
+  { src = "https://github.com/windwp/nvim-autopairs" }, -- Autopairs
+  { src = "https://github.com/nvim-treesitter/nvim-treesitter" }, -- Treesitter
+  { src = "https://github.com/folke/which-key.nvim" }, -- Keymap Guide UI
+  { src = "https://github.com/nvim-telescope/telescope.nvim" }, -- Telescope
+  { src = "https://github.com/nvim-telescope/telescope-fzf-native.nvim" }, -- Telescope
+  { src = "https://github.com/nvim-lua/plenary.nvim" }, -- Dependency
+  { src = "https://github.com/nvim-tree/nvim-web-devicons" }, -- Dependency
+  { src = "https://github.com/nvim-lualine/lualine.nvim" }, -- Bottom Status Line
+  { src = "https://github.com/kdheepak/lazygit.nvim" }, -- Lazygit
+  { src = "https://github.com/mikavilpas/yazi.nvim" }, -- Yazi
+  { src = "https://github.com/karb94/neoscroll.nvim" }, -- Neoscroll
+  { src = "https://github.com/seblyng/roslyn.nvim" }, -- C# LSP
+  { src = "https://github.com/khoido2003/roslyn-filewatch.nvim" }, -- C# Auto Sync Files
+  { src = "https://github.com/notjedi/nvim-rooter.lua" }, -- C# Auto Detect Files
 })
 
 --###################
@@ -149,45 +149,6 @@ vim.api.nvim_create_autocmd("PackChanged", {
   end,
 })
 
--- LSP
-require("mason").setup()
-require("mason-lspconfig").setup({
-  ensure_installed = {
-    "lua_ls", -- Lua
-    "rust_analyzer", -- Rust
-    "omnisharp", -- C#
-    "pyright", -- Python
-    "marksman", -- Markdown
-    "taplo", -- Toml
-    "html", -- HTML
-    "cssls", -- CSS
-    "yamlls", -- Yaml
-    "jsonls", -- Json
-    "bashls", -- Bash
-    "fish_lsp", -- Fish
-  },
-  handlers = {
-    function(server_name)
-      vim.lsp.enable(server_name)
-    end,
-  },
-})
-require("mason-tool-installer").setup({
-  ensure_installed = {
-    "stylua", -- Lua Formatter
-    "prettier", -- HTML CSS Markdown Json Yaml Formatter
-    "csharpier", -- C# Formatter
-    "black", -- Python Formatter
-    "isort", -- Python Formatter
-    "shfmt", -- Bash Formatter
-    "netcoredbg", -- Unity Debugger
-    "codelldb", -- Rust Debugger
-    "debugpy", -- Python Debugger
-    "ruff", -- Python linter
-    "shellcheck", -- Bash linter
-  },
-})
-
 -- Treesitter
 local ts_ok, ts_configs = pcall(require, 'nvim-treesitter.configs')
 if ts_ok then
@@ -206,24 +167,74 @@ end
 
 -- Luasnip
 require("luasnip.loaders.from_vscode").lazy_load()
-local ls_ok, _ = pcall(require, "luasnip")
-if ls_ok then
-  require("luasnip.loaders.from_vscode").lazy_load()
-end
+require("luasnip.loaders.from_lua").load({ paths = "~/.config/nvim/lua/snippets" })
 
--- Blink Auto Completion
-require('blink.cmp').setup({
-  snippets = { preset = 'luasnip' },
-  sources = {
-    default = { 'lsp', 'path', 'snippets', 'buffer' },
-  },
-  keymap = {
-    preset = 'default',
+-- LSP
+require("mason").setup({
+    registries = {
+        "github:mason-org/mason-registry",
+        "github:Crashdummyy/mason-registry",
+    },
+})
+require("mason-lspconfig").setup({
+  ensure_installed = {
+    "lua_ls", -- Lua
+    "rust_analyzer", -- Rust
+    "pyright", -- Python
+    "marksman", -- Markdown
+    "taplo", -- Toml
+    "html", -- HTML
+    "cssls", -- CSS
+    "yamlls", -- Yaml
+    "jsonls", -- Json
+    "bashls", -- Bash
+    "fish_lsp", -- Fish
   },
 })
-vim.lsp.config("*", {
-  capabilities = require("blink.cmp").get_lsp_capabilities(),
+require("mason-tool-installer").setup({
+  ensure_installed = {
+    "stylua", -- Lua Formatter
+    "prettier", -- HTML CSS Markdown Json Yaml Formatter
+    "csharpier", -- C# Formatter
+    "black", -- Python Formatter
+    "isort", -- Python Formatter
+    "shfmt", -- Bash Formatter
+    "netcoredbg", -- Unity Debugger
+    "codelldb", -- Rust Debugger
+    "debugpy", -- Python Debugger
+    "ruff", -- Python linter
+    "shellcheck", -- Bash linter
+    "roslyn", -- C# LSP Custom
+  },
 })
+-- C# Roslyn Config
+require'nvim-rooter'.setup()
+require("roslyn_filewatch").setup()
+vim.lsp.config("roslyn", {
+    on_attach = function()
+        print("Ropslyn server attaches!")
+    end,
+    settings = {
+        ["csharp|inlay_hints"] = {
+            csharp_enable_inlay_hints_for_implicit_object_creation = true,
+            csharp_enable_inlay_hints_for_implicit_variable_types = true,
+            csharp_enable_inlay_hints_for_lambda_parameter_types = true,
+            csharp_enable_inlay_hints_for_types = true,
+            dotnet_enable_inlay_hints_for_indexer_parameters = true,
+            dotnet_enable_inlay_hints_for_literal_parameters = true,
+            dotnet_enable_inlay_hints_for_object_creation_parameters = true,
+            dotnet_enable_inlay_hints_for_other_parameters = true,
+            dotnet_enable_inlay_hints_for_parameters = true,
+            dotnet_suppress_inlay_hints_for_parameters_that_differ_only_by_suffix = true,
+            dotnet_suppress_inlay_hints_for_parameters_that_match_argument_name = true,
+            dotnet_suppress_inlay_hints_for_parameters_that_match_method_intent = true,
+        },
+        ["csharp|code_lens"] = {
+            dotnet_enable_references_code_lens = true,
+        },
+    },
+})
+-- LUA LSP Setup
 vim.lsp.config('lua_ls', {
   settings = {
     Lua = {
@@ -243,6 +254,29 @@ vim.lsp.config('lua_ls', {
     },
   },
 })
+
+-- Blink Auto Completion
+require('blink.cmp').setup({
+  snippets = { preset = 'luasnip' },
+  sources = {
+    default = { 'lsp', 'path', 'snippets', 'buffer' },
+  },
+  keymap = {
+    preset = 'default',
+  },
+  completion = {
+    documentation = {
+      auto_show = true,
+      auto_show_delay_ms = 500,
+    },
+  },
+  signature = {
+    enabled = true,
+  },
+})
+vim.lsp.config("*", {
+  capabilities = require("blink.cmp").get_lsp_capabilities(),
+})
 vim.api.nvim_create_autocmd("PackChanged", {
   callback = function(ev)
     if ev.data.spec.name == "blink.cmp" then
@@ -254,59 +288,6 @@ vim.api.nvim_create_autocmd("PackChanged", {
     end
   end,
 })
-
--- DAP
-require("dapui").setup()
-local dap = require("dap")
-local dapui = require("dapui")
-dapui.setup()
-dap.listeners.after.event_initialized["dapui"] = function()
-  dapui.open()
-end
-dap.listeners.before.event_terminated["dapui"] = function()
-  dapui.close()
-end
-dap.listeners.before.event_exited["dapui"] = function()
-  dapui.close()
-end
-
--- Python DAP
-dap.adapters.python = {
-  type = "executable",
-  command = vim.fn.stdpath("data") .. "/mason/bin/python3",
-  args = { "-m", "debugpy.adapter" },
-}
-dap.configurations.python = {
-  {
-    type = "python",
-    request = "launch",
-    name = "Launch file",
-    program = "${file}",
-    pythonPath = "python",
-  },
-}
-
--- Rust DAP
-dap.adapters.codelldb = {
-  type = "server",
-  port = "${port}",
-  executable = {
-    command = vim.fn.stdpath("data") .. "/mason/bin/codelldb",
-    args = { "--port", "${port}" },
-  },
-}
-dap.configurations.rust = {
-  {
-    name = "Launch",
-    type = "codelldb",
-    request = "launch",
-    program = function()
-      return vim.fn.input("Executable: ", vim.fn.getcwd() .. "/target/debug/", "file")
-    end,
-    cwd = "${workspaceFolder}",
-    stopOnEntry = false,
-  },
-}
 
 --###################
 --##### KEYMAPS #####
@@ -343,9 +324,6 @@ vim.keymap.set('n', '<leader>r', vim.lsp.buf.rename, { desc = 'Rename Variable' 
 
 -- Formatter
 vim.keymap.set("n", "<leader>f", function() vim.lsp.buf.format({ async = true }) end, { desc = "Format file" })
-
--- Debugger
-vim.keymap.set("n", "<leader>d", function() dapui.toggle() end, { desc = "DAP UI Toggle" })
 
 -- Neoscroll
 vim.keymap.set("n", '<S-Up>', function() neoscroll.ctrl_b({ duration = 250 }) end)
