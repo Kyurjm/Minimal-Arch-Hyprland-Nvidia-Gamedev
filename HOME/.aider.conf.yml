@@ -1,26 +1,52 @@
-model: ollama/qwen3-coder-30b-16k
+# Aider Configuration - Optimized for local Ollama workflow
+# Save this as .aider.conf.yml in your home directory or project root
 
-# Editing behavior
+# --- Primary Model Selection ---
+model: ollama_chat/qwen3-coder-30b-8k:latest
+
+# --- Architect Mode (The Secret to High-Quality Edits) ---
+architect: true
+# The 'Architect' (Brain)
+map-tokens: "4096"
+# The 'Editor' (Writer)
+editor-model: ollama_chat/qwen2.5-coder-7b-32k:latest
+editor-edit-format: editor-diff
+
+# --- Available Models (Commented out for quick swapping) ---
+# ollama_chat/qwen3-coder-30b-8k:latest
+# ollama_chat/gpt-oss-20b-12k:latest
+# ollama_chat/qwen2.5-coder-7b-32k:latest
+# ollama_chat/gemma3-4b-128k:latest
+
+# --- Editing Behavior ---
 auto-accept-architect: false
 auto-commits: false
 show-diffs: true
-map-tokens: "2048"
 
-# Output & UX
+# --- Automation & Quality Control ---
+auto-lint: true
+cache-prompts: true
+
+# --- Output & UX ---
 pretty: true
 stream: true
 code-theme: lightbulb
+fancy-input: true
+notifications: true
+show-model-warnings: true
 
-# Git safety
+# --- Git Settings ---
 git: true
 gitignore: true
+attribute-author: true
+attribute-committer: true
 
-# Colors (Kanagawa-friendly)
-user-input-color: "#98BB6C"
-tool-output-color: "#7FB4CA"
-assistant-output-color: "#dcd7ba"
-tool-error-color: "#c34043"
-tool-warning-color: "#F69A63"
+# --- Colors (Kanagawa Theme) ---
+user-input-color: "#98BB6C"         # Spring Green
+tool-output-color: "#7FB4CA"        # Flying Fish Blue
+assistant-output-color: "#dcd7ba"   # Old White
+tool-error-color: "#c34043"         # Crystal Red
+tool-warning-color: "#F69A63"       # Ronin Orange
 completion-menu-color: "#dcd7ba"
 completion-menu-bg-color: "#1f1f28"
 completion-menu-current-color: "#dcd7ba"
