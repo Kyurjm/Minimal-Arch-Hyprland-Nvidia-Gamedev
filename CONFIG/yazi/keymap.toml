@@ -12,11 +12,11 @@ run  = 'shell "powershell.exe" --block'
 desc = "Open PowerShell here"
 
 [[mgr.prepend_keymap]]
-on  = "<C-n>"
+on  = "<C-b>"
 run = '''shell 'ripdrag "$@" -x 2>/dev/null &' --confirm'''
 
 [[mgr.prepend_keymap]]
-on   = [ "g", "i" ]
+on   = [ "g", "l" ]
 run  = "plugin lazygit"
 desc = "run lazygit"
 
@@ -24,3 +24,8 @@ desc = "run lazygit"
 on   = "<Esc>"
 run  = "close"
 desc = "Cancel input"
+
+[[mgr.prepend_keymap]]
+on = ["g", "o"]
+run = "cd /run/media/kyurjm/KyurimSSD"
+desc = "Go to SanDisk SSD"
