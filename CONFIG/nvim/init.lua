@@ -71,11 +71,26 @@ vim.pack.add({
   { src = "https://github.com/seblyng/roslyn.nvim" }, -- C# LSP
   { src = "https://github.com/khoido2003/roslyn-filewatch.nvim" }, -- C# Auto Sync Files
   { src = "https://github.com/notjedi/nvim-rooter.lua" }, -- C# Auto Detect Files
+  { src = "https://github.com/MeanderingProgrammer/render-markdown.nvim" }, -- Markdown Renderer
 })
 
 --###################
 --##### CONFIGS #####
 --###################
+
+-- Markdown Renderer
+require('render-markdown').setup({
+  heading = {
+    enable = true,
+    render_modes = true,
+    atx = false,
+    sign = false,
+    },
+  code = {
+    style = 'language',
+  },
+  completions = { lsp = { enabled = true } },
+})
 
 -- Neoscroll
 require('neoscroll').setup()
