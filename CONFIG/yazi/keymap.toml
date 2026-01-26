@@ -16,7 +16,7 @@ on  = "<C-b>"
 run = '''shell 'ripdrag "$@" -x 2>/dev/null &' --confirm'''
 
 [[mgr.prepend_keymap]]
-on   = [ "g", "t" ]
+on   = [ "g", "l" ]
 run  = "plugin lazygit"
 desc = "run lazygit"
 
