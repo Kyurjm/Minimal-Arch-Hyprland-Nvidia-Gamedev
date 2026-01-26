@@ -18,7 +18,7 @@
 
     sort = yes
     idle_threshold = 15
-    font = monospace 13
+    font = Adwaita Sans Regular 11.5
     line_height = 0
     markup = full
     alignment = left

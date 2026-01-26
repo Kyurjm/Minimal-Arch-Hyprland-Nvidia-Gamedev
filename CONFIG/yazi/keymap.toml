@@ -16,7 +16,7 @@ on  = "<C-b>"
 run = '''shell 'ripdrag "$@" -x 2>/dev/null &' --confirm'''
 
 [[mgr.prepend_keymap]]
-on   = [ "g", "l" ]
+on   = [ "g", "t" ]
 run  = "plugin lazygit"
 desc = "run lazygit"
 
@@ -26,6 +26,6 @@ run  = "close"
 desc = "Cancel input"
 
 [[mgr.prepend_keymap]]
-on = ["g", "o"]
+on = ["g", "s"]
 run = "cd /run/media/kyurjm/KyurimSSD"
 desc = "Go to SanDisk SSD"

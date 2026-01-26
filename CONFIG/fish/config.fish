@@ -1,5 +1,3 @@
-source ~/.config/fish/themes/kanagawa.fish
-
 # Remove Fish Greetings
 set -U fish_greeting ""
 
@@ -45,3 +43,6 @@ zoxide init fish | source
 
 # Nvim Nightly Build
 fish_add_path $HOME/.local/share/bob/nvim-bin
+
+# Color
+set -gx TERM xterm-256color

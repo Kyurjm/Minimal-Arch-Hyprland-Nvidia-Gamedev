@@ -1,5 +1,5 @@
 # Minimal-Arch-Hyprland-Nvidia-Gamedev
-I highly recommend following the steps one by one. You can start by copying my minimal config, then tweak it however you like.
+Highly recommend following the steps one by one, then tweak it.
 
 SCREENSHOTS:
 
@@ -7,8 +7,7 @@ SCREENSHOTS:
 
 ![Demo1](https://github.com/Kyurjm/Minimal-Arch-Hyprland-Nvidia-Gamedev/blob/87513e05e95dd1a0abd9d12fe9af5abb8b1d9bd2/assets/Demo/Screenshot.jpg)
 
-- I'm using keyboard with window keyboard => in hyprland config i did swap alt and win button, and change caplock into escape
-- In terminal I mainly use yazi to navigate around and nvim to edit stuff => if you want to drag file from yazi to another window press Ctrl + N
+- Swap alt and win button, and change caplock into escape
 - Must know hotkeys to navigate around:
 
         SUPER + T => open terminal
@@ -17,8 +16,8 @@ SCREENSHOTS:
         SUPER + E => open yazi file manager
         SUPER + F => open nautilus file manager
         SUPER + L => Lockscreen
-        SUPER + Tab => Jumping around window in a workspace
-        SUPER + GRAVE => Jump between 2 workspace
+        SUPER + Tab => Jump between 2 workspace
+        SUPER + GRAVE => Circle all workspace
         SUPER + 1 => Switch to workspace 1
         Super + SHIFT + 1 => move window to workspace 1
         SUPER + S => Switch to special workspace
@@ -45,10 +44,11 @@ archinstall
 
 ## Install Essentials
 
-### First Update System
+### Update System
 ```
 sudo pacman -Syu
 ```
+
 ### Install AUR Helper 
 Install paru (https://github.com/Morganamilo/paru)
 ```
@@ -58,35 +58,41 @@ cd paru
 makepkg -si
 rm -r paru
 ```
-### Shell Bash and Fish
+### Bash and Fish
 ```
 sudo pacman -S fish bash
 ```
 
-### Choose your terminal
+### Terminal
 ```
 sudo pacman -S ghostty
+
 ```
-### Choose your browser
+### Browser
 ```
 paru -S google-chrome
 ```
-### Choose text editor
+
+### Text editor
 ```
 paru -S visual-studio-code-bin
 ```
-### Choose terminal text editor
+
+### Terminal text editor
 ```
 sudo pacman -S neovim
+
 ```
 ### File Manager
 ```
 sudo pacman -S nautilus
 ```
+
 ### Compression Tools
 ```
 sudo pacman -S file-roller 7zip unzip unrar gzip bzip2 xz tar
 ```
+
 ### Terminal File Manager (https://yazi-rs.github.io/docs/installation)
 ```
 sudo pacman -S yazi ffmpeg 7zip jq poppler fd ripgrep fzf zoxide resvg imagemagick

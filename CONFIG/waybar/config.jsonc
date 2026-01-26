@@ -38,7 +38,7 @@
     "on-click": "activate"
   },
   "tray": {
-    "icon-size": 15,
+    "icon-size": 18,
     "spacing": 8
   },
   "clock": {

@@ -49,3 +49,6 @@ export OLLAMA_API_BASE=http://127.0.0.1:11434
 
 # Nvim Nightly Build
 export PATH="$HOME/.local/share/bob/nvim-bin:$PATH"
+
+# Color
+export TERM=xterm-256color
